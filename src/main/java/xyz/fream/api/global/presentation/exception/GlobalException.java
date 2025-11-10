@@ -7,7 +7,7 @@ import lombok.Getter;
  * ErrorCode를 포함하여 일관된 예외를 처리를 가능하게 함
  * */
 @Getter
-public class GlobalException extends RuntimeException {
+public abstract class GlobalException extends RuntimeException {
 
     private final ErrorCode errorCode;
     

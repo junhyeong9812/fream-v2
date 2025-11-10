@@ -25,6 +25,13 @@ public enum GlobalErrorCode implements ErrorCode {
     INVALID_TYPE_VALUE("GLOBAL_102", "잘못된 데이터 타입입니다.", 400),
     MISSING_PARAMETER("GLOBAL_103", "필수 파라미터가 누락되었습니다.", 400),
 
+    // 페이징 관련 에러 추가
+    INVALID_PAGE_NUMBER("GLOBAL_104", "페이지 번호는 0보다 크거나 같아야 합니다.", 400),
+    INVALID_PAGE_SIZE("GLOBAL_105", "페이지 크기는 0보다 커야 합니다.", 400),
+    INVALID_TOTAL_ELEMENTS("GLOBAL_106", "전체 요소 수는 0보다 크거나 같아야 합니다.", 400),
+    INVALID_TOTAL_PAGES("GLOBAL_107", "전체 페이지 수는 0보다 크거나 같아야 합니다.", 400),
+    PAGE_INFO_NULL("GLOBAL_108", "페이지 정보는 null이 될 수 없습니다.", 400),
+
     /**
      * 인증/인가 에러(401, 403)
      * */
