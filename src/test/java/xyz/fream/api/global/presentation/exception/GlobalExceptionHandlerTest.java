@@ -21,6 +21,7 @@ import reactor.core.publisher.Mono;
 
 @WebFluxTest
 @ContextConfiguration(classes = {
+        GlobalExceptionHandler.class,
         GlobalExceptionHandlerTest.TestController.class,
         GlobalExceptionHandlerTest.TestConfig.class
 })

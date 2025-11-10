@@ -49,6 +49,20 @@ public class GlobalExceptionHandler implements ErrorWebExceptionHandler {
     private ErrorResponse createErrorResponse(ServerWebExchange exchange, Throwable ex) {
         String path = exchange.getRequest().getPath().value();
 
+        if (ex instanceof GlobalException globalException) {
+            var errorCode = globalException.getErrorCode();
+            String message = globalException.getMessage() != null
+                    ? globalException.getMessage()
+                    : errorCode.getMessage();
+
+            return ErrorResponse.of(
+                    errorCode.getCode(),
+                    message,
+                    errorCode.getStatus(),
+                    path
+            );
+        }
+
         if (ex instanceof WebExchangeBindException bindException) {
             String message = bindException.getBindingResult()
                     .getAllErrors()
